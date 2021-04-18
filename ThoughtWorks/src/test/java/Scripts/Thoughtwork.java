@@ -45,6 +45,82 @@ public class Thoughtwork {
     Assert.assertNotNull(response.jsonPath().get("token"));
   }
   
+  /** 
+   * Testcase to validate Negative scenario User registration without email
+   */
+  @Test
+  void registerUserEmailMissing_Negative() {
+
+    JSONObject requestParams = new JSONObject();
+    requestParams.put("password", password);
+
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/register").then()
+      .extract().response();
+
+    // Assertion of response
+
+    Assert.assertEquals(response.statusCode(), 400);
+    Assert.assertEquals(response.jsonPath().get("error"), "Missing email or username");
+  }
+  
+  
+  /** 
+   * Testcase to validate Negative scenario User registration without password
+   */
+  @Test
+  void registerUserPasswordMissing_Negative() {
+
+    JSONObject requestParams = new JSONObject();
+    requestParams.put("email", userName);
+
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/register").then()
+      .extract().response();
+
+    // Assertion of response
+
+    Assert.assertEquals(response.statusCode(), 400);
+    Assert.assertEquals(response.jsonPath().get("error"), "Missing password");
+  }
+  
+  
+  /** 
+   * Testcase to validate Negative scenario User registration without body
+   */
+  @Test
+  void registerUserNoBody_Negative() {
+
+    JSONObject requestParams = new JSONObject();
+    requestParams.put("email", userName);
+
+    Response response = given().contentType(ContentType.JSON)
+      .post("/register").then()
+      .extract().response();
+
+    // Assertion of response
+
+    Assert.assertEquals(response.statusCode(), 400);
+    Assert.assertEquals(response.jsonPath().get("error"), "Missing email or username");
+  }
+  
+  /** 
+   * Testcase to validate positive scenario User registration positive scenario
+   */
+  @Test
+  void registerUserWrongEmail_Negative() {
+
+    JSONObject requestParams = new JSONObject();
+    requestParams.put("email", "mahesh@gmail.com");
+    requestParams.put("password", password);
+
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/register").then()
+      .extract().response();
+
+    // Assertion of response
+
+    Assert.assertEquals(response.statusCode(), 400);
+    Assert.assertEquals(response.jsonPath().get("error"), "Note: Only defined users succeed registration");
+  }
+  
   /**
    *  Testcase to verify login api  
    */
@@ -61,6 +137,57 @@ public class Thoughtwork {
     
     Assert.assertEquals(response.statusCode(), 200);
     Assert.assertNotNull(response.jsonPath().get("token"));
+  }
+
+  
+  /**
+   *  Testcase to verify login api without username 
+   */
+  @Test
+  void loginWithoutUsername_Negative() {
+    JSONObject requestParams = new JSONObject();
+    requestParams.put("password", password);
+
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/login").then()
+      .extract().response();
+
+    // Assertion of response
+    
+    Assert.assertEquals(response.statusCode(),400);
+    Assert.assertEquals(response.jsonPath().get("error"),"Missing email or username");
+  }
+
+  /**
+   *  Testcase to verify login api without password 
+   */
+  @Test
+  void loginWithoutPassword_Negative() {
+    JSONObject requestParams = new JSONObject();
+    requestParams.put("email", "eve.holt@reqres.in");
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/login").then()
+      .extract().response();
+
+    // Assertion of response
+    
+    Assert.assertEquals(response.statusCode(),400);
+    Assert.assertEquals(response.jsonPath().get("error"),"Missing password");
+  }
+  
+  /**
+   *  Testcase to verify login api with wrong username 
+   */
+  @Test
+  void loginWithwrongUsername_Negative() {
+    JSONObject requestParams = new JSONObject();
+    requestParams.put("email", "mahesh@gmail.com");
+    requestParams.put("password", password);
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/login").then()
+      .extract().response();
+
+    // Assertion of response
+    
+    Assert.assertEquals(response.statusCode(),400);
+    Assert.assertEquals(response.jsonPath().get("error"),"user not found");
   }
   
   /**

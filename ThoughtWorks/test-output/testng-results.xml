@@ -1,33 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="12" passed="12" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-04-18T22:13:33 IST" name="Suite" finished-at="2021-04-18T22:13:41 IST" duration-ms="7986">
+  <suite started-at="2021-04-18T23:25:08 IST" name="Suite" finished-at="2021-04-18T23:25:20 IST" duration-ms="12234">
     <groups>
     </groups>
-    <test started-at="2021-04-18T22:13:33 IST" name="Test" finished-at="2021-04-18T22:13:41 IST" duration-ms="7986">
+    <test started-at="2021-04-18T23:25:08 IST" name="Test" finished-at="2021-04-18T23:25:20 IST" duration-ms="12234">
       <class name="Scripts.Thoughtwork">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Scripts.Thoughtwork@5bfa9431]" started-at="2021-04-18T22:13:33 IST" name="beforeClass" finished-at="2021-04-18T22:13:34 IST" duration-ms="1066" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:08 IST" name="beforeClass" finished-at="2021-04-18T23:25:09 IST" duration-ms="985" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="createuser_Postive()[pri:0, instance:Scripts.Thoughtwork@5bfa9431]" started-at="2021-04-18T22:13:34 IST" name="createuser_Postive" finished-at="2021-04-18T22:13:38 IST" duration-ms="4042" status="PASS">
+        <test-method signature="createuser_Postive()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:09 IST" name="createuser_Postive" finished-at="2021-04-18T23:25:12 IST" duration-ms="3479" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createuser_Postive -->
-        <test-method signature="deleteuser_Postive()[pri:0, instance:Scripts.Thoughtwork@5bfa9431]" started-at="2021-04-18T22:13:38 IST" name="deleteuser_Postive" finished-at="2021-04-18T22:13:39 IST" duration-ms="850" status="PASS">
+        <test-method signature="deleteuser_Postive()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:12 IST" name="deleteuser_Postive" finished-at="2021-04-18T23:25:13 IST" duration-ms="793" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteuser_Postive -->
-        <test-method signature="login_Positive()[pri:0, instance:Scripts.Thoughtwork@5bfa9431]" started-at="2021-04-18T22:13:39 IST" name="login_Positive" finished-at="2021-04-18T22:13:40 IST" duration-ms="763" status="PASS">
+        <test-method signature="loginWithoutPassword_Negative()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:13 IST" name="loginWithoutPassword_Negative" finished-at="2021-04-18T23:25:14 IST" duration-ms="745" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithoutPassword_Negative -->
+        <test-method signature="loginWithoutUsername_Negative()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:14 IST" name="loginWithoutUsername_Negative" finished-at="2021-04-18T23:25:15 IST" duration-ms="761" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithoutUsername_Negative -->
+        <test-method signature="loginWithwrongUsername_Negative()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:15 IST" name="loginWithwrongUsername_Negative" finished-at="2021-04-18T23:25:16 IST" duration-ms="780" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithwrongUsername_Negative -->
+        <test-method signature="login_Positive()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:16 IST" name="login_Positive" finished-at="2021-04-18T23:25:16 IST" duration-ms="717" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login_Positive -->
-        <test-method signature="registerUser_Positive()[pri:0, instance:Scripts.Thoughtwork@5bfa9431]" started-at="2021-04-18T22:13:40 IST" name="registerUser_Positive" finished-at="2021-04-18T22:13:40 IST" duration-ms="789" status="PASS">
+        <test-method signature="registerUserEmailMissing_Negative()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:16 IST" name="registerUserEmailMissing_Negative" finished-at="2021-04-18T23:25:17 IST" duration-ms="719" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerUserEmailMissing_Negative -->
+        <test-method signature="registerUserNoBody_Negative()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:17 IST" name="registerUserNoBody_Negative" finished-at="2021-04-18T23:25:18 IST" duration-ms="673" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerUserNoBody_Negative -->
+        <test-method signature="registerUserPasswordMissing_Negative()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:18 IST" name="registerUserPasswordMissing_Negative" finished-at="2021-04-18T23:25:18 IST" duration-ms="701" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerUserPasswordMissing_Negative -->
+        <test-method signature="registerUserWrongEmail_Negative()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:18 IST" name="registerUserWrongEmail_Negative" finished-at="2021-04-18T23:25:19 IST" duration-ms="697" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerUserWrongEmail_Negative -->
+        <test-method signature="registerUser_Positive()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:19 IST" name="registerUser_Positive" finished-at="2021-04-18T23:25:20 IST" duration-ms="721" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- registerUser_Positive -->
-        <test-method signature="userList_Postive()[pri:0, instance:Scripts.Thoughtwork@5bfa9431]" started-at="2021-04-18T22:13:40 IST" name="userList_Postive" finished-at="2021-04-18T22:13:41 IST" duration-ms="416" status="PASS">
+        <test-method signature="userList_Postive()[pri:0, instance:Scripts.Thoughtwork@223f3642]" started-at="2021-04-18T23:25:20 IST" name="userList_Postive" finished-at="2021-04-18T23:25:20 IST" duration-ms="394" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- userList_Postive -->
