@@ -25,86 +25,97 @@ public class Thoughtwork {
   }
   
   
+  /** 
+   * Testcase to validate positive scenario User registration positive scenario
+   */
   @Test
   void registerUser_Positive() {
-    
+
     JSONObject requestParams = new JSONObject();
-    requestParams.put("email", userName); 
+    requestParams.put("email", userName);
     requestParams.put("password", password);
-    
-   Response response= given().contentType(ContentType.JSON)
-     .body(requestParams.toJSONString())
-     .post("/register")
-     .then()
-     .extract().response();
-   
+
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/register").then()
+      .extract().response();
+
+    // Assertion of response
+
     Assert.assertEquals(response.statusCode(), 200);
-    Assert.assertEquals(response.jsonPath().get("id"),7);
+    Assert.assertEquals(response.jsonPath().get("id"), 7);
     Assert.assertNotNull(response.jsonPath().get("token"));
   }
   
+  /**
+   *  Testcase to verify login api  
+   */
   @Test
   void login_Positive() {
     JSONObject requestParams = new JSONObject();
-    requestParams.put("email", userName); 
+    requestParams.put("email", userName);
     requestParams.put("password", password);
+
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/login").then()
+      .extract().response();
+
+    // Assertion of response
     
-   Response response= given().contentType(ContentType.JSON)
-     .body(requestParams.toJSONString())
-     .post("/login")
-     .then()
-     .extract().response();
-    Assert.assertEquals(response.statusCode(), 200); 
+    Assert.assertEquals(response.statusCode(), 200);
     Assert.assertNotNull(response.jsonPath().get("token"));
   }
   
+  /**
+   * Testcase to verify createuser api positve scenario
+   */
   @Test
   void createuser_Postive() {
     JSONObject requestParams = new JSONObject();
-    requestParams.put("name", "mahesh"); 
+    requestParams.put("name", "mahesh");
     requestParams.put("job", "leader");
+
+    Response response = given().contentType(ContentType.JSON).body(requestParams.toJSONString()).post("/users").then()
+      .extract().response();
     
-   Response response= given().contentType(ContentType.JSON)
-     .body(requestParams.toJSONString())
-     .post("/users")
-     .then()
-     .extract().response();
-   Assert.assertEquals(response.statusCode(), 201);
-   Assert.assertEquals(response.jsonPath().get("name"), "mahesh");
-   Assert.assertEquals(response.jsonPath().get("job"),"leader");
-   Assert.assertNotNull(response.jsonPath().get("createdAt"));
-   Assert.assertNotNull(response.jsonPath().get("id"));
+    // Assertion for response
+    
+    Assert.assertEquals(response.statusCode(), 201);
+    Assert.assertEquals(response.jsonPath().get("name"), "mahesh");
+    Assert.assertEquals(response.jsonPath().get("job"), "leader");
+    Assert.assertNotNull(response.jsonPath().get("createdAt"));
+    Assert.assertNotNull(response.jsonPath().get("id"));
   }
   
   
+  /**
+   * Testcase verification of userlist page number 1 is considere as prameter
+   */
   @Test
   void userList_Postive() {
     
+    Response response = given().contentType(ContentType.JSON).param("page", 1).get("/users").then().extract().response();
     
-   Response response= given().contentType(ContentType.JSON)
-     .param("page", 1)
-     .get("/users")
-     .then()
-     .extract().response();
-   Assert.assertEquals(response.statusCode(), 200);
-   Assert.assertEquals(response.jsonPath().get("page"), 1);
-   Assert.assertEquals(response.jsonPath().get("per_page"),6);
-   Assert.assertNotNull(response.jsonPath().get("total"));
-   Assert.assertNotNull(response.jsonPath().get("total_pages"));
+    // Assertion of response
+    
+    Assert.assertEquals(response.statusCode(), 200);
+    Assert.assertEquals(response.jsonPath().get("page"), 1);
+    Assert.assertEquals(response.jsonPath().get("per_page"), 6);
+    Assert.assertNotNull(response.jsonPath().get("total"));
+    Assert.assertNotNull(response.jsonPath().get("total_pages"));
   }
 
   
+  /**
+   * Testcase verifcation of delted user api
+   */
   @Test
   void deleteuser_Postive() {
+
+    Response response = given().contentType(ContentType.JSON).delete("/users/7").then().extract().response();
+
+    //Assertion of response
     
-   Response response= given().contentType(ContentType.JSON)
-     .delete("/users/7")
-     .then()
-     .extract().response();
-   
-   Assert.assertEquals(response.statusCode(), 204);
-   Assert.assertTrue(response.body().asString().isEmpty());
-  
+    Assert.assertEquals(response.statusCode(), 204);
+    Assert.assertTrue(response.body().asString().isEmpty());
+
   }
 }
 
